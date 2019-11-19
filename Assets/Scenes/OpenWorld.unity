@@ -5105,7 +5105,7 @@ GameObject:
   - component: {fileID: 363706103}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5642,6 +5642,10 @@ MonoBehaviour:
   enemyName: Larry the Log
   baseDamage: 1
   moveSpeed: 1.5
+  target: {fileID: 0}
+  chaseRadius: 4
+  attackRadius: 1
+  homePosition: {fileID: 0}
 --- !u!1 &1630637544
 GameObject:
   m_ObjectHideFlags: 0
