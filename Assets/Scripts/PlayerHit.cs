@@ -19,13 +19,6 @@ public class PlayerHit : MonoBehaviour
         if(other.CompareTag("breakable"))
         {
             other.GetComponent<Pot>().Smash();
-            StartCoroutine(BreakCo());
         }
-    }
-
-    IEnumerator BreakCo()
-    {
-        yield return new WaitForSeconds(.3f);
-        this.gameObject.SetActive(false);
     }
 }

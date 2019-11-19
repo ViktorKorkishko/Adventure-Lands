@@ -10,18 +10,20 @@ public enum PlayerState
 }
 
 public class PlayerMovement : MonoBehaviour
-{
+{    
     public float speed;
     private Rigidbody2D myRigidBody;
     private Vector3 change;
     private Animator animator;
-    public PlayerState currentState;
+    PlayerState currentState;
 
     void Start()
     {
         currentState = PlayerState.walk;
         myRigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        animator.SetFloat("horizontal", 0f);
+        animator.SetFloat("vertical", -1f);
     }
 
     void Update()
@@ -66,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveCharacter()
     {
+        change.Normalize();
         myRigidBody.MovePosition(transform.position + change * speed * Time.fixedDeltaTime);
     }
 }
