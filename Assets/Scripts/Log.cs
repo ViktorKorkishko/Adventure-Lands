@@ -13,7 +13,7 @@ public class Log : Enemy
     {
         target = GameObject.FindWithTag("Player").transform;
     }
-    
+
     void Update()
     {
         CheckDistance();
