@@ -4958,7 +4958,7 @@ GameObject:
   - component: {fileID: 168538624}
   m_Layer: 0
   m_Name: RightHitBox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5014,9 +5014,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 168538621}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f2b7654f0a79ff4ca48810179617f6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 10f53d8de952f414d9c2956b44978078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thrust: 2
+  knockTime: 0.2
 --- !u!1 &252215988
 GameObject:
   m_ObjectHideFlags: 0
@@ -5030,7 +5032,7 @@ GameObject:
   - component: {fileID: 252215991}
   m_Layer: 0
   m_Name: LeftHitBox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5086,9 +5088,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 252215988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f2b7654f0a79ff4ca48810179617f6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 10f53d8de952f414d9c2956b44978078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thrust: 2
+  knockTime: 0.2
 --- !u!1 &363706097
 GameObject:
   m_ObjectHideFlags: 0
@@ -5103,6 +5107,7 @@ GameObject:
   - component: {fileID: 363706099}
   - component: {fileID: 363706098}
   - component: {fileID: 363706103}
+  - component: {fileID: 363706104}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5123,6 +5128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
+  currentState: 0
 --- !u!61 &363706099
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5257,6 +5263,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &363706104
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363706097}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.000041246414, y: -0.3434962}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.4997735, y: 1.0623662}
+  m_EdgeRadius: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -5370,7 +5402,7 @@ GameObject:
   - component: {fileID: 1007143721}
   m_Layer: 0
   m_Name: BottomHitBox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5426,9 +5458,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1007143718}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f2b7654f0a79ff4ca48810179617f6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 10f53d8de952f414d9c2956b44978078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thrust: 2
+  knockTime: 0.2
 --- !u!1 &1220705856
 GameObject:
   m_ObjectHideFlags: 0
@@ -5488,9 +5522,11 @@ GameObject:
   - component: {fileID: 1331507281}
   - component: {fileID: 1331507280}
   - component: {fileID: 1331507285}
+  - component: {fileID: 1331507286}
+  - component: {fileID: 1331507287}
   m_Layer: 0
   m_Name: Log
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5529,7 +5565,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331507279}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -5539,7 +5575,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!95 &1331507282
@@ -5597,8 +5633,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1641440589
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -5034061168752090764, guid: d4e8dda85de36604992b72f4f6e240ee,
     type: 3}
@@ -5638,14 +5674,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab0b77c0a5c1a2244a67806c857bd204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
   health: 2
   enemyName: Larry the Log
   baseDamage: 1
   moveSpeed: 1.5
-  target: {fileID: 0}
+  target: {fileID: 363706102}
   chaseRadius: 4
   attackRadius: 1
-  homePosition: {fileID: 0}
+  animator: {fileID: 0}
+--- !u!61 &1331507286
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331507279}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0003504753, y: -0.1260407}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7492151, y: 1.2539663}
+  m_EdgeRadius: 0
+--- !u!114 &1331507287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331507279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f53d8de952f414d9c2956b44978078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 4
+  knockTime: 0.2
 --- !u!1 &1630637544
 GameObject:
   m_ObjectHideFlags: 0
@@ -25992,7 +26069,7 @@ GameObject:
   - component: {fileID: 1958915198}
   m_Layer: 0
   m_Name: TopHitBox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26048,6 +26125,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1958915195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f2b7654f0a79ff4ca48810179617f6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 10f53d8de952f414d9c2956b44978078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thrust: 2
+  knockTime: 0.2
