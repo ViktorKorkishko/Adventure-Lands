@@ -34,10 +34,23 @@ public class Log : Enemy
             currentState != EnemyState.stagger)
             {
                 Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+                ChangeAnim(temp - transform.position);
                 myRigidBody.MovePosition(temp);
                 ChangeState(EnemyState.walk);
+                animator.SetBool("wakeUp", true);
             }
         }
+        else if(Vector3.Distance(target.position, transform.position) > chaseRadius)
+        {
+            animator.SetBool("wakeUp", false);
+        }
+    }
+
+    private void ChangeAnim(Vector2 direction)
+    {
+        direction = direction.normalized;
+        animator.SetFloat("horizontal", direction.x);
+        animator.SetFloat("vertical", direction.y);
     }
 
     private void ChangeState(EnemyState newState)
