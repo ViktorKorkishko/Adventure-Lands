@@ -8,7 +8,6 @@ public class Knockback : MonoBehaviour
     public float knockTime;
     public float damage;
 
-
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.CompareTag("breakable") && this.gameObject.CompareTag("Player"))

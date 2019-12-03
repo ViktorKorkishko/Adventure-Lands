@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class HeartManager : MonoBehaviour
@@ -12,7 +10,6 @@ public class HeartManager : MonoBehaviour
     public FloatValue heartsContainers;
     public FloatValue playerCurrentHealth;
 
-    // Start is called before the first frame update
     void Start()
     {
         InitHearts();
