@@ -33,16 +33,30 @@ public class Log : Enemy
             currentState == EnemyState.walk &&
             currentState != EnemyState.stagger)
             {
-                Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
-                ChangeAnim(temp - transform.position);
-                myRigidBody.MovePosition(temp);
-                ChangeState(EnemyState.walk);
                 animator.SetBool("wakeUp", true);
+                Invoke("MoveLog", 1f);
             }
         }
         else if(Vector3.Distance(target.position, transform.position) > chaseRadius)
         {
             animator.SetBool("wakeUp", false);
+        }
+    }
+
+    private void MoveLog()
+    {
+        if(Vector3.Distance(target.position, transform.position) <= chaseRadius &&
+        Vector3.Distance(target.position, transform.position) > attackRadius)
+        {
+            if(currentState == EnemyState.idle ||
+            currentState == EnemyState.walk &&
+            currentState != EnemyState.stagger)
+            {
+                Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+                ChangeAnim(temp - transform.position);
+                myRigidBody.MovePosition(temp);
+                ChangeState(EnemyState.walk);
+            }
         }
     }
 

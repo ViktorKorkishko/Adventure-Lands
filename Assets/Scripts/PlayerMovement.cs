@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public PlayerState currentState;
     public FloatValue currentHealth;
     public mySignal playerHealthSignal;
+    public VectorValue startingPosition;
 
     void Start()
     {
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         animator.SetFloat("horizontal", 0f);
         animator.SetFloat("vertical", -1f);
+        transform.position = startingPosition.initialValue;
     }
 
     void Update()
