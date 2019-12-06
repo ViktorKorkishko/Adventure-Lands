@@ -6,7 +6,6 @@ public class Interactable : MonoBehaviour
 {
     public mySignal context;
     public bool playerInRange;
-    public GameObject dialogBox;
     
     void Start()
     {
@@ -33,7 +32,6 @@ public class Interactable : MonoBehaviour
         {
             context.Raise();
             playerInRange = false;
-            dialogBox.SetActive(false);
         }
     }
 }

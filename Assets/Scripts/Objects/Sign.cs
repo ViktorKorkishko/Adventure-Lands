@@ -7,6 +7,7 @@ public class Sign : Interactable
 {
     public Text dialogText;
     public string dialog;
+    public GameObject dialogBox;
 
     void Update()
     {
@@ -21,6 +22,16 @@ public class Sign : Interactable
                 dialogBox.SetActive(true);
                 dialogText.text = dialog;
             }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.CompareTag("Player") && !other.isTrigger)
+        {
+            context.Raise();
+            playerInRange = false;
+            dialogBox.SetActive(false);
         }
     }
 }
