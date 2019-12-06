@@ -5100,13 +5100,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5865709438498490496, guid: f623f99efefd54046a123013af5c39eb,
         type: 3}
+      propertyPath: sceneToLoad
+      value: OpenWorld
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865709438498490496, guid: f623f99efefd54046a123013af5c39eb,
+        type: 3}
       propertyPath: playerPosition.x
-      value: 7.544
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 5865709438498490496, guid: f623f99efefd54046a123013af5c39eb,
         type: 3}
       propertyPath: playerPosition.y
-      value: 2.73
+      value: 2.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 251738869748447115, guid: f623f99efefd54046a123013af5c39eb,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0045564175
+      objectReference: {fileID: 0}
+    - target: {fileID: 251738869748447115, guid: f623f99efefd54046a123013af5c39eb,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 3.0463471
+      objectReference: {fileID: 0}
+    - target: {fileID: 251738869748447115, guid: f623f99efefd54046a123013af5c39eb,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.25973397
+      objectReference: {fileID: 0}
+    - target: {fileID: 251738869748447115, guid: f623f99efefd54046a123013af5c39eb,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.8194679
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f623f99efefd54046a123013af5c39eb, type: 3}

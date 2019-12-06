@@ -29,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         animator.SetFloat("horizontal", 0f);
         animator.SetFloat("vertical", -1f);
-        transform.position = startingPosition.initialValue;
     }
 
     void Update()
