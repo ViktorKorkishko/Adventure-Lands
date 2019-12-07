@@ -11,6 +11,11 @@ public class Sign : Interactable
 
     void Update()
     {
+        ReadTheTable();
+    }
+
+    void ReadTheTable()
+    {
         if (Input.GetKeyDown(KeyCode.V) && playerInRange)
         {
             if (dialogBox.activeInHierarchy)
@@ -27,7 +32,7 @@ public class Sign : Interactable
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(other.CompareTag("Player") && !other.isTrigger)
+        if (other.CompareTag("Player") && !other.isTrigger)
         {
             context.Raise();
             playerInRange = false;

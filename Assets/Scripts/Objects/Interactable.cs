@@ -6,20 +6,20 @@ public class Interactable : MonoBehaviour
 {
     public mySignal context;
     public bool playerInRange;
-    
+
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player") && !other.isTrigger)
+        if (other.CompareTag("Player") && !other.isTrigger)
         {
             context.Raise();
             playerInRange = true;
@@ -28,7 +28,7 @@ public class Interactable : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(other.CompareTag("Player") && !other.isTrigger)
+        if (other.CompareTag("Player") && !other.isTrigger)
         {
             context.Raise();
             playerInRange = false;
