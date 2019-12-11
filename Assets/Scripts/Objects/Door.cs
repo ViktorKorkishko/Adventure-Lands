@@ -31,10 +31,6 @@ public class Door : Interactable
                 }
             }
         }
-        else
-        {
-
-        }
     }
 
     public void Open()
@@ -42,10 +38,5 @@ public class Door : Interactable
         doorSprite.enabled = false;
         open = true;
         physicsCollider.enabled = false;
-    }
-
-    public void Close()
-    {
-
     }
 }

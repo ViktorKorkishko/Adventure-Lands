@@ -5,10 +5,12 @@ using UnityEngine;
 public class Log : Enemy
 {
     public Rigidbody2D myRigidBody;
+    [Header("Target Variables")]
     public Transform target;
     public float chaseRadius;
     public float attackRadius;
     // public Transform homePosition;
+    [Header("Animator")]
     public Animator animator;
 
     void Start()
@@ -54,7 +56,7 @@ public void ChangeAnim(Vector2 direction)
     animator.SetFloat("vertical", direction.y);
 }
 
-private void ChangeState(EnemyState newState)
+public virtual void ChangeState(EnemyState newState)
 {
     if (currentState != newState)
     {

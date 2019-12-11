@@ -91,7 +91,7 @@ TextureImporter:
     second: objects 1_23
   - first:
       213: -8977847371463731393
-    second: objects 1_24
+    second: Rock1
   - first:
       213: 8942819405117418368
     second: objects 1_25
@@ -1067,7 +1067,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: objects 1_24
+      name: Rock1
       rect:
         serializedVersion: 2
         x: 260
@@ -2605,8 +2605,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 160
-        width: 14
-        height: 31
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2626,8 +2626,8 @@ TextureImporter:
         serializedVersion: 2
         x: 16
         y: 160
-        width: 14
-        height: 31
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3532,7 +3532,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
