@@ -21,7 +21,6 @@ public class PatrolLog : Log
                 Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
                 ChangeAnim(temp - transform.position);
                 myRigidBody.MovePosition(temp);
-                // ChangeState(EnemyState.walk);
                 animator.SetBool("wakeUp", true);
             }
         }

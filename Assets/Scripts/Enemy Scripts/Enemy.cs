@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     public string enemyName;
     public int baseDamage;
     public float moveSpeed;
+
     [Header("Death effects")]
     public GameObject deathEffect;
     private float deathEffectDelay = 1f;
