@@ -135,9 +135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f53d8de952f414d9c2956b44978078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 0.5
+  thrust: 0
   knockTime: 0.2
-  damage: 0.5
+  damage: 1
 --- !u!114 &8778439374142429235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b355a60a53c8aa445917ce11b1499951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 0.5
   directionToMove: {x: 0, y: 0}
   lifeTime: 2
   myRigidbody: {fileID: 8778439374142429233}
