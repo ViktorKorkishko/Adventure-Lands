@@ -31,7 +31,7 @@ public class TreasureChest : Interactable
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.V) && playerInRange)
+        if (Input.GetButtonDown("Interact") && playerInRange)
         {
             if (!isOpened)
             {

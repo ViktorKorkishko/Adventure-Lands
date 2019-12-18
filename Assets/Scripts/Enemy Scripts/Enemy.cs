@@ -33,7 +33,6 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        currentState = EnemyState.idle;
         health = maxHealth.initialValue;
     }
 
@@ -41,6 +40,7 @@ public class Enemy : MonoBehaviour
     {
         currentState = EnemyState.idle;
         transform.position = homePosition;
+        health = maxHealth.initialValue;
     }
 
     private void TakeDamage(float damage)

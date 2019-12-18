@@ -12,3 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9ed2a9dd1c2864a956fafe1f37c335, type: 3}
   m_Name: Mostly Hearts
   m_EditorClassIdentifier: 
+  loots:
+  - thisLoot: {fileID: 2701674334749596754, guid: db53b8b6096a1624bbf293f14178378c,
+      type: 3}
+    lootChance: 50
+  - thisLoot: {fileID: 6130908721853694563, guid: aa6fad0b0f3e8654c9d2efd1f8b98b02,
+      type: 3}
+    lootChance: 25
