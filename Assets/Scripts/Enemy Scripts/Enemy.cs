@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
     public mySignal roomSignal;
 
     private void Awake()
-    {
+    { 
         health = maxHealth.initialValue;
     }
 
