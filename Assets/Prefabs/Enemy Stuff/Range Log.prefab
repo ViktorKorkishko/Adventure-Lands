@@ -175,10 +175,12 @@ MonoBehaviour:
   homePosition: {x: 0, y: 0}
   deathEffect: {fileID: 1284581548650363480, guid: 92429c970272e4148885ec74dc748281,
     type: 3}
+  thisLoot: {fileID: 0}
+  roomSignal: {fileID: 0}
   myRigidBody: {fileID: 5770642129492865675}
   target: {fileID: 0}
   chaseRadius: 4
-  attackRadius: 0.8
+  attackRadius: 0.5
   animator: {fileID: 0}
 --- !u!61 &7648150372577432893
 BoxCollider2D:

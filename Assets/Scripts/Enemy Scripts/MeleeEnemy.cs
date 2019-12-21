@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MeleeEnemy : Log
 {
+    public float sleepTime = 3f;
     void Start()
     {
 
@@ -45,8 +46,9 @@ public class MeleeEnemy : Log
     {
         currentState = EnemyState.attack;
         animator.SetBool("attack", true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         currentState = EnemyState.walk;
         animator.SetBool("attack", false);
+        yield return new WaitForSeconds(sleepTime);
     }
 }
