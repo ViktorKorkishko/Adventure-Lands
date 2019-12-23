@@ -14,9 +14,9 @@ public class Sign : Interactable
         ReadTheTable();
     }
 
-    void ReadTheTable()
+    public void ReadTheTable()
     {
-        if (Input.GetKeyDown(KeyCode.V) && playerInRange)
+        if (Input.GetButtonDown("Interact") && playerInRange)
         {
             if (dialogBox.activeInHierarchy)
             {
@@ -30,7 +30,7 @@ public class Sign : Interactable
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    public virtual void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player") && !other.isTrigger)
         {

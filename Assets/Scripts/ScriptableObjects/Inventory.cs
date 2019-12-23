@@ -9,7 +9,7 @@ public class Inventory : ScriptableObject
     public List<Item> items = new List<Item>();
     public int numberOfKeys;
     public int coins;
-
+    
     public void AddItem(Item itemToAdd)
     {
         if (itemToAdd.isKey)

@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer receivedItemSprite;
     public mySignal playerHit;
     public GameObject projectile;
+    public bool canFire;
 
     void Start()
     {
@@ -53,7 +54,8 @@ public class PlayerMovement : MonoBehaviour
         }
         else if(Input.GetButtonDown("Second Weapon") &&
         currentState != PlayerState.attack &&
-        currentState != PlayerState.stagger)
+        currentState != PlayerState.stagger &&
+        canFire)
         {
             StartCoroutine(SecondAttackCo());
         }
@@ -78,11 +80,11 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator SecondAttackCo()
     {
-        // animator.SetBool("attacking", true);
+        animator.SetBool("fire", true);
         currentState = PlayerState.attack;
         yield return null;
         MakeArrow();
-        // animator.SetBool("attacking", false);
+        animator.SetBool("fire", false);
         yield return new WaitForSeconds(.3f);
         if (currentState != PlayerState.interact)
         {
