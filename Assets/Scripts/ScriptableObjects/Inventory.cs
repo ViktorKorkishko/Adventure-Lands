@@ -9,7 +9,9 @@ public class Inventory : ScriptableObject
     public List<Item> items = new List<Item>();
     public int numberOfKeys;
     public int coins;
-    
+    public float maxMagic = 10f;
+    public float currentMagic;
+
     public void AddItem(Item itemToAdd)
     {
         if (itemToAdd.isKey)

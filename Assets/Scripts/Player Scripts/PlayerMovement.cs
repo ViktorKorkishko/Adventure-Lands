@@ -24,8 +24,8 @@ public class PlayerMovement : MonoBehaviour
     public Inventory playerInventory;
     public SpriteRenderer receivedItemSprite;
     public mySignal playerHit;
+    public mySignal reduceMagic;
     public GameObject projectile;
-    public bool canFire;
 
     void Start()
     {
@@ -52,10 +52,9 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(AttackCo());
         }
-        else if(Input.GetButtonDown("Second Weapon") &&
+        else if (Input.GetButtonDown("Second Weapon") &&
         currentState != PlayerState.attack &&
-        currentState != PlayerState.stagger &&
-        canFire)
+        currentState != PlayerState.stagger)
         {
             StartCoroutine(SecondAttackCo());
         }
@@ -94,9 +93,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void MakeArrow()
     {
-        Vector2 temp = new Vector2(animator.GetFloat("horizontal"), animator.GetFloat("vertical"));
-        Arrow arrow = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Arrow>();
-        arrow.SetUp(temp, ChooseArrowDirection());
+        if (playerInventory.currentMagic > 0)
+        {
+            Vector2 temp = new Vector2(animator.GetFloat("horizontal"), animator.GetFloat("vertical"));
+            Arrow arrow = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Arrow>();
+            arrow.SetUp(temp, ChooseArrowDirection());
+            reduceMagic.Raise();
+        }
     }
 
     public Vector3 ChooseArrowDirection()
