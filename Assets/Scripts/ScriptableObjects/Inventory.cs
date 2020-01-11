@@ -12,6 +12,25 @@ public class Inventory : ScriptableObject
     public float maxMagic = 10f;
     public float currentMagic;
 
+    public void OnEnable()
+    {
+        currentMagic = maxMagic;
+    }
+
+    public void ReduceMagic(float magicCost)
+    {
+        currentMagic -= magicCost;
+    }
+
+    public bool CheckForItem(Item item)
+    {
+        if(items.Contains(item))
+        {
+            return true;
+        }
+        return false;
+    }
+
     public void AddItem(Item itemToAdd)
     {
         if (itemToAdd.isKey)

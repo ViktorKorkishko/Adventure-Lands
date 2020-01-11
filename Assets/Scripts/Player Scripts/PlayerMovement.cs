@@ -25,7 +25,10 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer receivedItemSprite;
     public mySignal playerHit;
     public mySignal reduceMagic;
+
+    [Header("Projectile stuff")]
     public GameObject projectile;
+    public Item bow;
 
     void Start()
     {
@@ -56,7 +59,10 @@ public class PlayerMovement : MonoBehaviour
         currentState != PlayerState.attack &&
         currentState != PlayerState.stagger)
         {
-            StartCoroutine(SecondAttackCo());
+            if (playerInventory.CheckForItem(bow))
+            {
+                StartCoroutine(SecondAttackCo());
+            }
         }
         else if (currentState == PlayerState.walk || currentState == PlayerState.idle)
         {
@@ -98,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
             Vector2 temp = new Vector2(animator.GetFloat("horizontal"), animator.GetFloat("vertical"));
             Arrow arrow = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Arrow>();
             arrow.SetUp(temp, ChooseArrowDirection());
+            playerInventory.ReduceMagic(arrow.magicCost);
             reduceMagic.Raise();
         }
     }

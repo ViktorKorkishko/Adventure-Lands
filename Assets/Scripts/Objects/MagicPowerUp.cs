@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MagicPowerUp : PowerUp
 {
+    public Inventory playerInventory;
+    public float magicValue;
+
     void Start()
     {
         
@@ -13,6 +16,7 @@ public class MagicPowerUp : PowerUp
     {
         if(other.gameObject.CompareTag("Player") && other.isTrigger)
         {
+            playerInventory.currentMagic += magicValue;
             powerUpSignal.Raise();
             Destroy(this.gameObject);
         }

@@ -8,6 +8,11 @@ public class CoinTextManager : MonoBehaviour
     public Inventory playerInventory;
     public TextMeshProUGUI coinDisplay;
 
+    void Start()
+    {
+        coinDisplay.text = playerInventory.coins.ToString();
+    }
+
     public void UpdateCoins()
     {
         coinDisplay.text = "" + playerInventory.coins;
