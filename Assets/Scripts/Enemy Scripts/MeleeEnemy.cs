@@ -17,38 +17,43 @@ public class MeleeEnemy : Log
 
     public override void CheckDistance()
     {
-        if (Vector3.Distance(target.position, transform.position) <= chaseRadius &&
-        Vector3.Distance(target.position, transform.position) > attackRadius)
+        if (canAttack)
         {
-            if (currentState == EnemyState.idle ||
-            currentState == EnemyState.walk &&
-            currentState != EnemyState.stagger)
+            if (Vector3.Distance(target.position, transform.position) <= chaseRadius &&
+            Vector3.Distance(target.position, transform.position) > attackRadius)
             {
-                Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
-                ChangeAnim(temp - transform.position);
-                myRigidBody.MovePosition(temp);
-                ChangeState(EnemyState.walk);
-
+                if (currentState == EnemyState.idle ||
+                currentState == EnemyState.walk &&
+                currentState != EnemyState.stagger)
+                {
+                    Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+                    ChangeAnim(temp - transform.position);
+                    myRigidBody.MovePosition(temp);
+                    ChangeState(EnemyState.walk);
+                }
             }
-        }
-        else if (Vector3.Distance(target.position, transform.position) <= chaseRadius &&
-        Vector3.Distance(target.position, transform.position) <= attackRadius)
-        {
-            if (currentState == EnemyState.walk &&
-            currentState != EnemyState.stagger)
+            else if (Vector3.Distance(target.position, transform.position) <= chaseRadius &&
+            Vector3.Distance(target.position, transform.position) <= attackRadius)
             {
-                StartCoroutine(AttackCo());
+                if (currentState == EnemyState.walk &&
+                currentState != EnemyState.stagger)
+                {
+                    canAttack = true;
+                    StartCoroutine(AttackCo());
+                }
             }
         }
     }
 
     public IEnumerator AttackCo()
     {
+        canAttack = false;
+        yield return new WaitForSeconds(sleepTime);
         currentState = EnemyState.attack;
         animator.SetBool("attack", true);
         yield return new WaitForSeconds(0.5f);
         currentState = EnemyState.walk;
         animator.SetBool("attack", false);
-        yield return new WaitForSeconds(sleepTime);
+        canAttack = true;
     }
 }
