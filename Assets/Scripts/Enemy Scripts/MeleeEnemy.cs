@@ -5,6 +5,7 @@ using UnityEngine;
 public class MeleeEnemy : Log
 {
     public float sleepTime = 3f;
+
     void Start()
     {
 
@@ -17,43 +18,39 @@ public class MeleeEnemy : Log
 
     public override void CheckDistance()
     {
-        if (canAttack)
+
+        if (Vector3.Distance(target.position, transform.position) <= chaseRadius &&
+        Vector3.Distance(target.position, transform.position) > attackRadius)
         {
-            if (Vector3.Distance(target.position, transform.position) <= chaseRadius &&
-            Vector3.Distance(target.position, transform.position) > attackRadius)
+            if (currentState == EnemyState.idle ||
+            currentState == EnemyState.walk &&
+            currentState != EnemyState.stagger)
             {
-                if (currentState == EnemyState.idle ||
-                currentState == EnemyState.walk &&
-                currentState != EnemyState.stagger)
-                {
-                    Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
-                    ChangeAnim(temp - transform.position);
-                    myRigidBody.MovePosition(temp);
-                    ChangeState(EnemyState.walk);
-                }
-            }
-            else if (Vector3.Distance(target.position, transform.position) <= chaseRadius &&
-            Vector3.Distance(target.position, transform.position) <= attackRadius)
-            {
-                if (currentState == EnemyState.walk &&
-                currentState != EnemyState.stagger)
-                {
-                    canAttack = true;
-                    StartCoroutine(AttackCo());
-                }
+                Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+                ChangeAnim(temp - transform.position);
+                myRigidBody.MovePosition(temp);
+                ChangeState(EnemyState.walk);
             }
         }
+        else if (Vector3.Distance(target.position, transform.position) <= chaseRadius &&
+        Vector3.Distance(target.position, transform.position) <= attackRadius)
+        {
+            if (currentState == EnemyState.walk &&
+            currentState != EnemyState.stagger)
+            {
+                StartCoroutine(AttackCo());
+            }
+        }
+
     }
 
     public IEnumerator AttackCo()
     {
-        canAttack = false;
         yield return new WaitForSeconds(sleepTime);
         currentState = EnemyState.attack;
         animator.SetBool("attack", true);
         yield return new WaitForSeconds(0.5f);
         currentState = EnemyState.walk;
         animator.SetBool("attack", false);
-        canAttack = true;
     }
 }
