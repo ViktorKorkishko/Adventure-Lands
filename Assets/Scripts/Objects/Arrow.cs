@@ -18,7 +18,7 @@ public class Arrow : MonoBehaviour
     void Update()
     {
         lifeTimeCounter -= Time.deltaTime;
-        if(lifeTimeCounter <= 0)
+        if (lifeTimeCounter <= 0)
         {
             Destroy(this.gameObject);
         }
@@ -27,14 +27,14 @@ public class Arrow : MonoBehaviour
     public void SetUp(Vector2 velocity, Vector3 direction)
     {
         myRigidbody.velocity = velocity.normalized * speed;
-        transform.rotation = Quaternion.Euler(direction); 
+        transform.rotation = Quaternion.Euler(direction);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("enemy"))
         {
-            Destroy(this.gameObject);
+            Destroy(this.gameObject);   
         }
     }
 }

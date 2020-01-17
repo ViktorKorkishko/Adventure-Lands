@@ -4,21 +4,13 @@ using UnityEngine;
 
 public class MeleeEnemy : Log
 {
-    public float sleepTime = 3f;
-
     void Start()
     {
-
-    }
-
-    void Update()
-    {
-
+        currentState = EnemyState.idle;
     }
 
     public override void CheckDistance()
     {
-
         if (Vector3.Distance(target.position, transform.position) <= chaseRadius &&
         Vector3.Distance(target.position, transform.position) > attackRadius)
         {
@@ -30,6 +22,7 @@ public class MeleeEnemy : Log
                 ChangeAnim(temp - transform.position);
                 myRigidBody.MovePosition(temp);
                 ChangeState(EnemyState.walk);
+                animator.SetFloat("speed", moveSpeed);
             }
         }
         else if (Vector3.Distance(target.position, transform.position) <= chaseRadius &&
@@ -41,12 +34,15 @@ public class MeleeEnemy : Log
                 StartCoroutine(AttackCo());
             }
         }
-
+        else
+        {
+            animator.SetFloat("speed", 0);
+            currentState = EnemyState.idle;
+        }
     }
 
     public IEnumerator AttackCo()
     {
-        yield return new WaitForSeconds(sleepTime);
         currentState = EnemyState.attack;
         animator.SetBool("attack", true);
         yield return new WaitForSeconds(0.5f);
