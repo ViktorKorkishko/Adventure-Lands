@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f618ebe31178d4648be1ce0a120ab1e9, type: 3}
-  m_Name: HeartContainers
+  m_Script: {fileID: 11500000, guid: 4f50dd4ff99201d4181abc0b0120450a, type: 3}
+  m_Name: PlayerPositionAtCutscene
   m_EditorClassIdentifier: 
-  initialValue: 3
-  RuntimeValue: 5
+  initialValue: {x: -5.5, y: 1}
+  defaultValue: {x: -5.5, y: 1}

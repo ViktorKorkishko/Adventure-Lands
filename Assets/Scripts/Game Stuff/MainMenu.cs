@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void StartNew()
     {
-        SceneManager.LoadScene("OpenWorld");
+        SceneManager.LoadScene("Opening Cutscene");
     }
 
     public void ExitGame()

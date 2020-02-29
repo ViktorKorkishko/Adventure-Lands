@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9183282893751910800
 Transform:
   m_ObjectHideFlags: 0
@@ -94,7 +94,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9183282894308328251
 Transform:
   m_ObjectHideFlags: 0
@@ -365,7 +365,6 @@ MonoBehaviour:
   chaseRadius: 5
   attackRadius: 1
   animator: {fileID: 9183282894352715286}
-  sleepTime: 3
 --- !u!1 &9183282894408928041
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +382,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9183282894408928086
 Transform:
   m_ObjectHideFlags: 0
@@ -459,7 +458,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9183282895067028376
 Transform:
   m_ObjectHideFlags: 0
