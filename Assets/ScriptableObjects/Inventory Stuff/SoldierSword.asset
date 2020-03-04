@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae66fd992fba5a44bb9b00cfc672c3bf, type: 3}
-  m_Name: Item
+  m_Name: SoldierSword
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: 
-  itemImage: {fileID: 0}
-  numberHeld: 0
+  itemName: Sword
+  itemDescription: Old rusty sword, but it gets job done.
+  itemImage: {fileID: 21300000, guid: 3a5a75455c5c11d4ca7545dad7b1421f, type: 3}
+  numberHeld: 1
   usable: 0
-  unique: 0
+  unique: 1
