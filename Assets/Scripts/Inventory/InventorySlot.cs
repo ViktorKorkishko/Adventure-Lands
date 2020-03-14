@@ -25,15 +25,11 @@ public class InventorySlot : MonoBehaviour
         }
     }
 
-    
-
-    void Start()
+    public void ClickedOn()
     {
-        
-    }
-
-    void Update()
-    {
-        
+        if(thisItem)
+        {
+            thisManager.SetupDiscriptionAndButton(thisItem.itemDescription, thisItem.usable, thisItem);
+        }
     }
 }
