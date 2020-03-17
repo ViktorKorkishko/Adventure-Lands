@@ -7,18 +7,44 @@ public class PauseManager : MonoBehaviour
 {
     private bool isPaused;
     public GameObject pausePanel;
+    public GameObject inventoryPanel;
+    private bool usingInventory;
 
     void Start()
     {
         isPaused = false;
+        pausePanel.SetActive(false);
+        inventoryPanel.SetActive(false);
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Pause"))
+        if (Input.GetButtonDown("Pause") && !usingInventory)
         {
             ResumeOrPause();
         }
+        if (Input.GetButtonDown("Inventory") && inventoryPanel.activeInHierarchy && !isPaused)
+        {
+            CloseInventory();
+        }
+        else if (Input.GetButtonDown("Inventory") && !isPaused)
+        {
+            OpenInventory();
+        }
+    }
+
+    void OpenInventory()
+    {
+        usingInventory = true;
+        inventoryPanel.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    void CloseInventory()
+    {
+        usingInventory = false;
+        inventoryPanel.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     public void ResumeOrPause()

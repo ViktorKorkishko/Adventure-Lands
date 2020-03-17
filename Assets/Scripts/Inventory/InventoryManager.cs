@@ -25,13 +25,16 @@ public class InventoryManager : MonoBehaviour
         {
             for (int i = 0; i < playerInventory.myInventory.Count; i++)
             {
-                GameObject temp = Instantiate(blankInventorySlot, inventoryPanel.transform.position, Quaternion.identity);
-                temp.transform.SetParent(inventoryPanel.transform);
-                temp.transform.localScale = new Vector3(1, 1, 1);
-                InventorySlot newSlot = temp.GetComponent<InventorySlot>();
-                if (newSlot)
+                if (playerInventory.myInventory[i].numberHeld > 0 || playerInventory.myInventory[i].itemName == "Bottle")
                 {
-                    newSlot.Setup(playerInventory.myInventory[i], this);
+                    GameObject temp = Instantiate(blankInventorySlot, inventoryPanel.transform.position, Quaternion.identity);
+                    temp.transform.SetParent(inventoryPanel.transform);
+                    temp.transform.localScale = new Vector3(1, 1, 1);
+                    InventorySlot newSlot = temp.GetComponent<InventorySlot>();
+                    if (newSlot)
+                    {
+                        newSlot.Setup(playerInventory.myInventory[i], this);
+                    }
                 }
             }
         }
@@ -50,11 +53,29 @@ public class InventoryManager : MonoBehaviour
         useButton.SetActive(isButtonUsable);
     }
 
+    void ClearInventorySlots()
+    {
+        for (int i = 0; i < inventoryPanel.transform.childCount; i++)
+        {
+            Destroy(inventoryPanel.transform.GetChild(i).gameObject);
+        }
+    }
+
+
+
     public void UseButtonPressed()
     {
-        if(currentItem)
+        if (currentItem)
         {
             currentItem.Use();
+            //clear all the inventory slots
+            ClearInventorySlots();
+            //refill all slots with new numbers
+            MakeInventorySlot();
+            if (currentItem.numberHeld == 0)
+            {
+                SetTextAndButton("", false);
+            }
         }
     }
 }
