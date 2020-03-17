@@ -40,8 +40,9 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    void Start()
+    void OnEnable()
     {
+        ClearInventorySlots();
         MakeInventorySlot();
         SetTextAndButton("", false);
     }
@@ -60,8 +61,6 @@ public class InventoryManager : MonoBehaviour
             Destroy(inventoryPanel.transform.GetChild(i).gameObject);
         }
     }
-
-
 
     public void UseButtonPressed()
     {
