@@ -13,19 +13,31 @@ public enum PlayerState
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    public PlayerState currentState;
     public float speed;
     private Rigidbody2D myRigidBody;
     private Vector3 change;
     private Animator animator;
-    public PlayerState currentState;
+
+    //TODO HEALTH Break off the health system into its own component
+    /*
     public FloatValue currentHealth;
     public mySignal playerHealthSignal;
+    */
     public VectorValue startingPosition;
+
+    //TODO INVENTORY Break off the player inventory into its own componrnt
     public Inventory playerInventory;
     public SpriteRenderer receivedItemSprite;
+
+    //TODO Player HEALTH hit should be part of the health system?
     public mySignal playerHit;
+
+    //TODO MAGIC Player magic should be part of magic system
     public mySignal reduceMagic;
 
+    //TODO IFRAME Break off the iFrame stuff into its own script
     [Header("IFrame Stuff")]
     public Color flashColor;
     public Color regularColor;
@@ -34,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     public Collider2D triggerCollider;
     public SpriteRenderer mySprite;
 
+    //TODO ABILITY Break this off with the player ability system
     [Header("Projectile stuff")]
     public GameObject projectile;
     public Item bow;
@@ -63,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(AttackCo());
         }
+        //TODO ABILITY
         else if (Input.GetButtonDown("Second Weapon") &&
         currentState != PlayerState.attack &&
         currentState != PlayerState.stagger)
@@ -78,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //TODO ABILITY
     private IEnumerator AttackCo()
     {
         animator.SetBool("attacking", true);
@@ -105,6 +120,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //TODO ABILITY it should be part of the ability itself
     private void MakeArrow()
     {
         if (playerInventory.currentMagic > 0)
@@ -117,11 +133,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //TODO ABILITY this should also be part of the ability 
     public Vector3 ChooseArrowDirection()
     {
         float temp = Mathf.Atan2(animator.GetFloat("vertical"), animator.GetFloat("horizontal")) * Mathf.Rad2Deg;
         return new Vector3(0, 0, temp);
     }
+
 
     public void RaiseItem()
     {
@@ -166,18 +184,25 @@ public class PlayerMovement : MonoBehaviour
         myRigidBody.MovePosition(transform.position + change * speed * Time.fixedDeltaTime);
     }
 
+    // TODO KNOCKBACK move the knockbakc to its own script
     public void Knock(float knockTime, float damage)
     {
+        StartCoroutine(KnockCo(knockTime));
+        //TODO HEALTH
+        /*
         currentHealth.RuntimeValue -= damage;
         playerHealthSignal.Raise();
         if (currentHealth.RuntimeValue > 0)
         {
-            StartCoroutine(KnockCo(knockTime));
+            //TODO HEALTH
+            playerHit.Raise();
+
         }
         else
         {
             this.gameObject.SetActive(false);
         }
+        */
     }
 
     private IEnumerator KnockCo(float knockTime)
@@ -193,6 +218,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // TODO IFRAME move the player flashing to its own script
     private IEnumerator FlashCo()
     {
         int temp = 0;
