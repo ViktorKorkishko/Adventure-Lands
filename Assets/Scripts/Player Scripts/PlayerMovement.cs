@@ -185,7 +185,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // TODO KNOCKBACK move the knockbakc to its own script
-    public void Knock(float knockTime, float damage)
+    public void Knock(float knockTime)
     {
         StartCoroutine(KnockCo(knockTime));
         //TODO HEALTH
