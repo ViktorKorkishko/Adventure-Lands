@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 3734544377236868125}
   - component: {fileID: 3734544377236868124}
   - component: {fileID: 3734544377236868122}
-  - component: {fileID: 3734544377236868123}
   - component: {fileID: 3734544377236868100}
   m_Layer: 8
   m_Name: Turret Log
@@ -180,21 +179,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7492151, y: 1.2539663}
   m_EdgeRadius: 0
---- !u!114 &3734544377236868123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3734544377236868099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10f53d8de952f414d9c2956b44978078, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thrust: 4
-  knockTime: 0
-  damage: 0
 --- !u!114 &3734544377236868100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,19 +193,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   maxHealth: {fileID: 11400000, guid: a3d418a6d66d6f44198cddacd6fd6f8f, type: 2}
-  health: 0
+  health: 3
   enemyName: Paul the Log
   baseDamage: 0
   moveSpeed: 0
-  homePosition: {x: -10, y: 13}
+  homePosition: {x: 18, y: -8}
   deathEffect: {fileID: 1284581548650363480, guid: 92429c970272e4148885ec74dc748281,
     type: 3}
-  roomSignal: {fileID: 0}
+  thisLoot: {fileID: 11400000, guid: 0fdd5e560d54a8d4d8ca2f8bb4c3a195, type: 2}
+  roomSignal: {fileID: 11400000, guid: 11ad4959a98c73045b9586af8ec00630, type: 2}
   myRigidBody: {fileID: 3734544377236868125}
   target: {fileID: 0}
   chaseRadius: 6
   attackRadius: 0
-  animator: {fileID: 0}
+  animator: {fileID: 3734544377236868126}
   projectile: {fileID: 8778439374142429236, guid: 2663e5e557e878842856436b797cd3f2,
     type: 3}
   fireDelay: 0.8

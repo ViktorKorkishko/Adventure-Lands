@@ -192,9 +192,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f53d8de952f414d9c2956b44978078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 4
-  knockTime: 0.2
-  damage: 1
+  thrust: 0
+  knockTime: 0
+  otherTag: Player
 --- !u!114 &7534122074404684957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,8 +213,11 @@ MonoBehaviour:
   enemyName: Bob The Log
   baseDamage: 1
   moveSpeed: 1.5
+  homePosition: {x: 0, y: 0}
   deathEffect: {fileID: 1284581548650363480, guid: 92429c970272e4148885ec74dc748281,
     type: 3}
+  thisLoot: {fileID: 0}
+  roomSignal: {fileID: 0}
   myRigidBody: {fileID: 0}
   target: {fileID: 0}
   chaseRadius: 5

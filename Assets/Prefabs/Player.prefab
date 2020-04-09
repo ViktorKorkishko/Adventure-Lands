@@ -74,7 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 2
   knockTime: 0.2
-  damage: 1
+  otherTag: Enemy
 --- !u!1 &6615418612629043788
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,8 +134,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!212 &6615418612629043790
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -427,7 +425,7 @@ MonoBehaviour:
   regularColor: {r: 1, g: 1, b: 1, a: 1}
   flashDuration: 0.07
   numberOfFlashes: 4
-  triggerCollider: {fileID: 0}
+  triggerCollider: {fileID: 9142580284774891130}
   mySprite: {fileID: 6615418614218291475}
   projectile: {fileID: 270492672674388047, guid: cc943996cb6b20e4081e86b4f965ac12,
     type: 3}
@@ -492,8 +490,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &6615418613100474780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -616,7 +612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 2
   knockTime: 0.2
-  damage: 1
+  otherTag: Enemy
 --- !u!1 &6615418613358329711
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,7 +687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 2
   knockTime: 0.2
-  damage: 1
+  otherTag: Enemy
 --- !u!1 &6615418613708790971
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,7 +925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 2
   knockTime: 0.2
-  damage: 1
+  otherTag: Enemy
 --- !u!1 &7097932342029829960
 GameObject:
   m_ObjectHideFlags: 0

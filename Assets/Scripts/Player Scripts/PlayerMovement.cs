@@ -67,17 +67,16 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-        change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
-        if (Input.GetButtonDown("Attack") &&
+        if (Input.GetButtonDown("Weapon Attack") &&
         currentState != PlayerState.attack &&
         currentState != PlayerState.stagger)
         {
             StartCoroutine(AttackCo());
         }
         //TODO ABILITY
-        else if (Input.GetButtonDown("Second Weapon") &&
+        else if (Input.GetButtonDown("Ability") &&
         currentState != PlayerState.attack &&
         currentState != PlayerState.stagger)
         {
